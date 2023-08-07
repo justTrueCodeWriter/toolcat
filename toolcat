@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$1" = "" ]; then
+	echo "
+▀▀█▀▀ █▀▀█ █▀▀█ █░░ █▀▀ █▀▀█ ▀▀█▀▀ 
+░░█░░ █░░█ █░░█ █░░ █░░ █▄▄█ ░░█░░ 
+░░▀░░ ▀▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▀░░▀ ░░▀░░                                                            	
+Usage: toolcat [COMMAND][ARGUMENT]
+
+toolcat grab-music <link>   download music
+toolcat grab-subbed <link>  download video with subtitles 
+"
+elif [ "$1" = "grab-music" ]; then
+	yt-dlp --parse-metadata "title:%(artist)s - %(title)s" -x --audio-format mp3 --add-metadata $2 
+
+elif [ "$1" = "grab-subbed" ]; then
+	yt-dlp --write-auto-sub --convert-subs=srt $2
+
+fi
