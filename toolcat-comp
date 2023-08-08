@@ -1,0 +1,3 @@
+#!/bin/bash
+
+complete -c toolcat -x -a "grab-music grab-subbed disk-show disk-mount disk-umount"

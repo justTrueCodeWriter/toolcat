@@ -12,7 +12,7 @@ toolcat grab-music <link>   download music
 toolcat grab-subbed <link>  download video with subtitles 
 toolcat disk-show           show plugged disks
 toolcat disk-mount <path>   mount disk
-toolcat disk-umount <path>  umount disk
+toolcat disk-umount <path>  unmount disk
 "
 elif [ "$1" = "grab-music" ]; then
 	yt-dlp --parse-metadata "title:%(artist)s - %(title)s" -x --audio-format mp3 --add-metadata $2 
