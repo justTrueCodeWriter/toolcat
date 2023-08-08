@@ -6,7 +6,7 @@ Toolkit for everyday use
 - udisks2
 
 # Options:
-`$ udisks2`
+`$ toolcat`
 ```sh
 ▀▀█▀▀ █▀▀█ █▀▀█ █░░ █▀▀ █▀▀█ ▀▀█▀▀ 
 ░░█░░ █░░█ █░░█ █░░ █░░ █▄▄█ ░░█░░ 
