@@ -5,15 +5,28 @@ if [ "$1" = "" ]; then
 ▀▀█▀▀ █▀▀█ █▀▀█ █░░ █▀▀ █▀▀█ ▀▀█▀▀ 
 ░░█░░ █░░█ █░░█ █░░ █░░ █▄▄█ ░░█░░ 
 ░░▀░░ ▀▀▀▀ ▀▀▀▀ ▀▀▀ ▀▀▀ ▀░░▀ ░░▀░░                                                            	
+----------------------------------
 Usage: toolcat [COMMAND][ARGUMENT]
-
+----------------------------------
 toolcat grab-music <link>   download music
 toolcat grab-subbed <link>  download video with subtitles 
+toolcat disk-show           show plugged disks
+toolcat disk-mount <path>   mount disk
+toolcat disk-umount <path>  umount disk
 "
 elif [ "$1" = "grab-music" ]; then
 	yt-dlp --parse-metadata "title:%(artist)s - %(title)s" -x --audio-format mp3 --add-metadata $2 
 
 elif [ "$1" = "grab-subbed" ]; then
 	yt-dlp --write-auto-sub --convert-subs=srt $2
+
+elif [ "$1" = "disk-show" ]; then
+	lsblk
+
+elif [ "$1" = "disk-mount" ]; then
+	udisksctl mount -b $2
+
+elif [ "$1" = "disk-umount" ]; then
+	udisksctl unmount -b $2
 
 fi
